@@ -1,0 +1,38 @@
+#include <iostream>
+#include <list>
+#include <string>
+
+using namespace std;
+
+class Osoba {
+
+string name;
+string surname;
+
+friend void print(Osoba &k) {
+cout << k.name << " " << k.surname << " " << endl;
+}
+
+public:
+Osoba(string n,string s) : name(n), surname(s) {
+}
+};
+
+
+void print(list<Osoba> &l) {
+for (list<Osoba>::iterator it = l.begin(); it != l.end(); it++){
+    it->print();
+}
+}
+
+int main (){
+list<Osoba> l1;
+l1.push_back(Osoba("Jan","Kowalski"));
+l1.push_back(Osoba("Adam","Adamiak"));
+l1.push_back(Osoba("Jan","Kuczyński"));
+l1.push_back(Osoba("Borys","Wieczorek"));
+l1.push_back(Osoba("Katarzyna","Wieczorek"));
+print(l1);
+
+return 0;
+}

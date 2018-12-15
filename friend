@@ -6,23 +6,21 @@ using namespace std;
 
 class Osoba {
 
-string name;
-string surname;
+string imie;
+string nazwisko;
 
-friend void print(Osoba &k) {
-cout << k.name << " " << k.surname << " " << endl;
-}
+friend void print(Osoba os);
 
 public:
-Osoba(string n,string s) : name(n), surname(s) {
+Osoba(string i,string n) { 
+imie = i;
+nazwisko = n;
 }
 };
 
 
-void print(list<Osoba> &l) {
-for (list<Osoba>::iterator it = l.begin(); it != l.end(); it++){
-    it->print();
-}
+void print(Osoba os) {
+    cout << os.imie << " " << os.nazwisko << endl;
 }
 
 int main (){
@@ -32,7 +30,11 @@ l1.push_back(Osoba("Adam","Adamiak"));
 l1.push_back(Osoba("Jan","Kuczyński"));
 l1.push_back(Osoba("Borys","Wieczorek"));
 l1.push_back(Osoba("Katarzyna","Wieczorek"));
-print(l1);
+
+for (list<Osoba>::iterator it = l1.begin(); it != l1.end(); it++) {
+        
+    print(*it);
+}
 
 return 0;
 }

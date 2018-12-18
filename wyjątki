@@ -1,0 +1,33 @@
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+
+int main () {
+
+  ifstream is ("plik.txt", ifstream::binary);
+  try{
+  if (is) {
+    is.seekg (0, is.end);
+    long int ilosc = is.tellg();
+    is.seekg (0, is.beg);
+
+    char * buffer = new char [ilosc]; // alokuje pamięć
+
+    is.read (buffer,ilosc); // read data as a block
+
+    throw buffer;
+
+    is.close();
+
+    //cout.write (buffer,ilosc); 
+  
+  }
+  }
+  catch(char x) {
+    cout << x;
+  }
+
+  getchar();
+  return 0;
+}

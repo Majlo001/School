@@ -1,0 +1,46 @@
+#include <iostream>
+
+
+using namespace std;
+
+class A {
+    int tab[10];
+
+public:
+    A(int x){
+        for(int i = 0; i < 10; i++){
+            tab[i] = x;
+        }
+    };
+
+
+    void wypisz(){
+        for (int i = 0; i < 10; i++) {
+            cout << tab[i] << endl;
+        }
+    }
+
+    friend A operator +(A n, A m);
+};
+
+A operator +(A n, A m)
+{
+    A y(0);
+    for (int i = 0; i < 10; i++)
+        y.tab[i] = n.tab[i] + m.tab[i];
+    return y;
+}
+
+
+
+int main() {
+
+    A o1(1), o2(2), o3(0);
+
+    o3 = o1 + o2;
+
+    o3.wypisz();
+
+    getchar();
+    return 0;
+}

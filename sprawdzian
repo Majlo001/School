@@ -1,0 +1,105 @@
+#include <iostream>
+
+
+using namespace std;
+
+class A 
+{
+	int x, y;
+
+public:
+	A(int x = 0, int y = 0) {
+		this->x = x;
+		this->y = y;
+	}
+	void print() {
+		cout << "x=" << x << " y=" << y << endl;
+	}
+	friend A operator*(A obj1, A obj2);
+	friend A operator+(A obj1, int liczba);
+	friend bool operator!=(A obj1, A obj2);
+	friend bool operator==(A obj1, A obj2);
+	friend ostream &operator<<(ostream &out, A obj1);
+	friend istream &operator>>(istream &in, A &obj1);
+};
+
+A operator*(A obj1, A obj2)
+{
+	A obj3;
+	obj3.x = obj1.x * obj2.x;
+	obj3.y = obj1.y * obj2.y;
+	return obj3;
+}
+
+A operator+(A obj1, int liczba)
+{
+	A obj3;
+	obj3.x = obj1.x + liczba;
+	obj3.y = obj1.y + liczba;
+	return obj3;
+}
+
+bool operator!=(A obj1, A obj2)
+{
+	if (obj1.x == obj2.x && obj1.x == obj2.x)
+	{
+		return false;
+	}
+	else
+	{
+		return true;
+	}
+}
+
+bool operator==(A obj1, A obj2)
+{
+	if (obj1.x == obj2.x && obj1.x == obj2.x)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+
+ostream &operator<<(ostream &out, A obj1)
+{
+	out << obj1.x << obj1.y;
+	return out;
+}
+
+istream &operator>>(istream &in, A &obj1)
+{
+	in >> obj1.x >> obj1.y;
+	return in;
+}
+
+///operator * mnożący dwa obiekty klasy A (x z pierwszego obiektu * x z drugiego obiektu oraz y analogicznie)
+///operator + dodający liczbę (dodajemy liczbę do składowych x oraz y)
+///operator != oraz == sprawdzający czy obiekty (wartości składowych x i y) są różne i równe zwracający true lub false
+///operator strumienia >> (wczytujący z wejścia liczby i zapisujący je do składowych x i y
+///operator strumienia << (wypisujący na wyjściu wartości składowych x i y)
+
+
+int main()
+{
+	A ob1, ob2(10, 10), ob3;
+	ob1.print();
+	ob2.print();
+
+	ob3 = ob1*ob2;
+	ob3.print();
+	ob3 = ob1+10;
+	ob3.print();
+	    if (ob1!=ob2) {
+	        cout<<"Obiekty rozne"<<endl;
+	    }
+	    if (ob1==ob2) {
+	        cout<<"Obiekty rowne"<<endl;
+	    }
+	    cin>>ob1;
+	    cout<<ob1;
+
+	return 0;
+}

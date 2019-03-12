@@ -1,0 +1,3 @@
+﻿  SQLitesss.cpp
+c:\users\majlo001\desktop\sqlitesss\sqlitesss\sqlitesss.cpp(11): error C2065: "cout": niezadeklarowany identyfikator
+c:\users\majlo001\desktop\sqlitesss\sqlitesss\sqlitesss.cpp(11): error C2059: błąd składniowy: „]”

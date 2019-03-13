@@ -1,3 +1,4 @@
+
 #include <iostream>
 
 using namespace std;
@@ -6,7 +7,26 @@ class Zwierz {
 public:
 	int waga;
 	int nogi;
+
+	Zwierz() {
+		nogi = 0;
+		waga = 0;
+		cout << "konstruktor bezparametrowy" << endl;
+	}
+
+	Zwierz(int nogi, int waga) {
+		this->waga = waga;
+		this->nogi = nogi;
+		cout << "konstruktor parametrowy" << endl;
+	}
+
+	~Zwierz() {
+		cout << "destruktor klasy" << endl;
+	}
+	
 };
+
+class Ssak{}; // 
 
 class Kon : public Zwierz {
 	int ogon;
@@ -15,17 +35,18 @@ public:
 		this->waga = waga;
 		this->nogi = nogi;
 		this->ogon = ogon;
+		cout << "konstruktor parametrowy" << endl;
 	}
 
-	Kon(int waga, int nogi, int ogon){
-		waga = 0;
+	Kon() {
 		nogi = 0;
+		waga = 0;
 		ogon = 0;
-		cout << "To jest konstruktor parametrowy do konstruktora parametrowego";
+		cout << "konstruktor bezparametrowy" << endl;
 	}
 
-	~Kon(){
-		cout << "To jest destruktor klasy Kon";
+	~Kon() {
+		cout << "destruktor klasy" << endl;
 	}
 
 	void print() {
@@ -44,6 +65,19 @@ public:
 		this->nogi = nogi;
 		this->ogon = ogon;
 		this->traba = traba;
+		cout << "konstruktor parametrowy" << endl;
+	}
+
+	Slon() {
+		waga = 0;
+		nogi = 0;
+		ogon = 0;
+		traba = 0;
+		cout << "konstruktor bezparametrowy" << endl;
+	}
+
+	~Slon() {
+		cout << "destruktor klasy" << endl;
 	}
 
 	void print() {
@@ -62,6 +96,18 @@ public:
 		this->waga = waga;
 		this->nogi = nogi;
 		this->szyja = szyja;
+		cout << "konstruktor parametrowy" << endl;
+	}
+
+	Strus() {
+		waga = 0;
+		nogi = 0;
+		szyja = 0;
+		cout << "konstruktor bezparametrowy" << endl;
+	}
+
+	~Strus() {
+		cout << "destruktor klasy" << endl;
 	}
 
 	void print() {

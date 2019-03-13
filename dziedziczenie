@@ -26,15 +26,20 @@ public:
 	
 };
 
-class Ssak{}; // 
+class Ssak{
+public:
+	int mleko;
 
-class Kon : public Zwierz {
+};
+
+class Kon : public Zwierz, public Ssak {
 	int ogon;
 public:
-	Kon(int waga, int nogi, int ogon) {
+	Kon(int waga, int nogi, int ogon, int mleko) {
 		this->waga = waga;
 		this->nogi = nogi;
 		this->ogon = ogon;
+		this->mleko = mleko;
 		cout << "konstruktor parametrowy" << endl;
 	}
 
@@ -50,21 +55,23 @@ public:
 	}
 
 	void print() {
-		std::cout << "Waga konia: " << waga << "kg" << std::endl;
-		std::cout << "Dlugosc ogonu konia: " << ogon << "cm" << std::endl;
-		std::cout << "Ilosc nog konia: " << nogi << std::endl;
+		cout << "Waga konia: " << waga << "kg" << endl;
+		cout << "Dlugosc ogonu konia: " << ogon << "cm" << endl;
+		cout << "Ilosc nog konia: " << nogi << endl;
+		cout << "Ilosc mleka konia: " << mleko << "l" << endl;
 	}
 };
 
-class Slon : public Zwierz {
+class Slon : public Zwierz, public Ssak {
 	int ogon;
 	int traba;
 public:
-	Slon(int waga, int nogi, int ogon, int traba) {
+	Slon(int waga, int nogi, int ogon, int traba, int mleko) {
 		this->waga = waga;
 		this->nogi = nogi;
 		this->ogon = ogon;
 		this->traba = traba;
+		this->mleko = mleko;
 		cout << "konstruktor parametrowy" << endl;
 	}
 
@@ -118,8 +125,8 @@ public:
 };
 
 int main() {
-	Kon ob1(450, 4, 15);
-	Slon ob2(3540, 4, 20, 25);
+	Kon ob1(550, 4, 15, 2);
+	Slon ob2(3500, 4, 20, 25);
 	Strus ob3(120, 2, 23);
 
 	ob1.print();

@@ -1,0 +1,87 @@
+#include <iostream>
+
+using namespace std;
+
+class Zwierz {
+public:
+	int waga;
+	int nogi;
+};
+
+class Kon : public Zwierz {
+	int ogon;
+public:
+	Kon(int waga, int nogi, int ogon) {
+		this->waga = waga;
+		this->nogi = nogi;
+		this->ogon = ogon;
+	}
+
+	Kon(int waga, int nogi, int ogon){
+		waga = 0;
+		nogi = 0;
+		ogon = 0;
+		cout << "To jest konstruktor parametrowy do konstruktora parametrowego";
+	}
+
+	~Kon(){
+		cout << "To jest destruktor klasy Kon";
+	}
+
+	void print() {
+		std::cout << "Waga konia: " << waga << "kg" << std::endl;
+		std::cout << "Dlugosc ogonu konia: " << ogon << "cm" << std::endl;
+		std::cout << "Ilosc nog konia: " << nogi << std::endl;
+	}
+};
+
+class Slon : public Zwierz {
+	int ogon;
+	int traba;
+public:
+	Slon(int waga, int nogi, int ogon, int traba) {
+		this->waga = waga;
+		this->nogi = nogi;
+		this->ogon = ogon;
+		this->traba = traba;
+	}
+
+	void print() {
+		cout << "Waga Slonia: " << waga << "kg" << endl;
+		cout << "Ilosc nog Slonia: " << nogi << endl;
+		cout << "Dlugosc ogonu Slonia: " << ogon << "cm" << endl;
+		cout << "Dlugosc traby Slonia: " << traba << "cm" << endl;
+	}
+};
+
+class Strus : public Zwierz {
+	int szyja;
+
+public:
+	Strus(int waga, int nogi, int szyja) {
+		this->waga = waga;
+		this->nogi = nogi;
+		this->szyja = szyja;
+	}
+
+	void print() {
+		cout << "Waga Strusia: " << waga << "kg" << endl;
+		cout << "Ilosc nog Strusia: " << nogi << endl;
+		cout << "Dlugosc szyji Strusia: " << szyja << "cm" << endl;
+	}
+};
+
+int main() {
+	Kon ob1(450, 4, 15);
+	Slon ob2(3540, 4, 20, 25);
+	Strus ob3(120, 2, 23);
+
+	ob1.print();
+	cout << endl;
+	ob2.print();
+	cout << endl;
+	ob3.print();
+
+	system("Pause");
+	return 0;
+}

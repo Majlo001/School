@@ -32,6 +32,12 @@ public:
 
 };
 
+class Ptak{
+public:
+	int jaja;
+
+};
+
 class Kon : public Zwierz, public Ssak {
 	int ogon;
 public:
@@ -92,17 +98,19 @@ public:
 		cout << "Ilosc nog Slonia: " << nogi << endl;
 		cout << "Dlugosc ogonu Slonia: " << ogon << "cm" << endl;
 		cout << "Dlugosc traby Slonia: " << traba << "cm" << endl;
+		cout << "Ilosc mleka Slonia: " << mleko << "l" << endl;
 	}
 };
 
-class Strus : public Zwierz {
+class Strus : public Zwierz, public Ptak {
 	int szyja;
 
 public:
-	Strus(int waga, int nogi, int szyja) {
+	Strus(int waga, int nogi, int szyja, int jaja) {
 		this->waga = waga;
 		this->nogi = nogi;
 		this->szyja = szyja;
+		this->jaja = jaja;
 		cout << "konstruktor parametrowy" << endl;
 	}
 
@@ -121,13 +129,14 @@ public:
 		cout << "Waga Strusia: " << waga << "kg" << endl;
 		cout << "Ilosc nog Strusia: " << nogi << endl;
 		cout << "Dlugosc szyji Strusia: " << szyja << "cm" << endl;
+		cout << "Ilosc jaj Stusia: " << jaja << endl;
 	}
 };
 
 int main() {
 	Kon ob1(550, 4, 15, 2);
-	Slon ob2(3500, 4, 20, 25);
-	Strus ob3(120, 2, 23);
+	Slon ob2(3500, 4, 20, 25, 5);
+	Strus ob3(120, 2, 23, 1);
 
 	ob1.print();
 	cout << endl;

@@ -1,0 +1,62 @@
+#include <iostream>
+ 
+using namespace std;
+ 
+class Zwierze{
+public:
+    int nogi;
+    virtual void print()=0;
+};
+ 
+class Strus : public Zwierze{
+public:
+    int szyja;
+    Strus(int szyja){
+        this->szyja=szyja;
+    }
+    void print(){
+        cout<<szyja<<"  "<<nogi<<endl;
+    }
+};
+ 
+class Slon : public Zwierze{
+public:
+    int traba;
+    Slon(int traba) {
+        this->traba=traba;
+    }
+    void print(){
+        cout<<traba<<"  "<<nogi<<endl;
+    }
+};
+ 
+class Kon : public Zwierze{
+public:
+    int ogon;
+    Kon(int ogon){
+        this->ogon=ogon;
+    }
+    void print(){
+        cout<<ogon<<"  "<<nogi<<endl;
+    }
+};
+ 
+int main()
+{
+    Zwierze *z [30];
+    for(int i=0; i<10; i++){
+        z[i] = new Strus(25);
+ 
+    }
+    for(int i=10; i<20; i++){
+        z[i] = new Slon(14);
+ 
+    }
+    for(int i=20; i<30; i++){
+        z[i] = new Kon(4);
+    }
+    for(int i=0; i<30; i++){
+        z[i]->print();
+    }
+    return 0;
+}
